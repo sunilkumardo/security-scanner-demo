@@ -1,11 +1,9 @@
+import os
 import requests
 import json
 from datetime import datetime
-import os
-
 
 # ─── CONFIG ───────────────────────────────────────────
-##GITHUB_TOKEN = "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"   # we will fill this next
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 OWNER        = "sunilkumardo"
 REPO         = "security-scanner-demo"
