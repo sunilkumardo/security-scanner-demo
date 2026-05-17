@@ -4,6 +4,7 @@ import json
 from datetime import datetime
 
 # ─── CONFIG ───────────────────────────────────────────
+
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 OWNER        = "sunilkumardo"
 REPO         = "security-scanner-demo"
@@ -46,6 +47,7 @@ def triage_alerts(alerts):
     for alert in alerts:
         state     = alert.get("state", "")
         severity  = alert.get("rule", {}).get("severity", "unknown").lower()
+        severity  = alert.get("rule", {}).get("security_severity_level", severity).lower()
         rule_id   = alert.get("rule", {}).get("id", "Unknown Rule")
         rule_desc = alert.get("rule", {}).get("description", "No description")
         location  = alert.get("most_recent_instance", {}).get("location", {})
